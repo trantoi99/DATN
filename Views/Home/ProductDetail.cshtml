@@ -1,0 +1,39 @@
+﻿@model Electric.Models.Product
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="container">
+    <h3>UserName : @Session["Account"] </h3>
+    <div class="row">
+        @Html.ActionLink("Giỏ Hàng", "Cart", "Cart", null, new { @class = "" })
+    </div>
+    <div class="row py-5">
+        <div class="col-md-6">
+            <img src=" @Url.Content("~/Photos/Admin/Product/" +Model.ImageURL)" class="img-fluid" alt="@Model.ProductName" />
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-left"> @Model.ProductName</h3>
+            <div class="row">
+                <div class="col-6">Mô tả :</div>
+                <div class="col-6">@Model.Description</div>
+            </div>
+            <div class="row">
+                <div class="col-6">Chi Tiết Sản Phẩm :</div>
+                <div class="col-6">@Model.Detail</div>
+            </div>
+            <div class="row">
+                <div class="col-6">Giá Sản Phẩm :</div>
+                <div class="col-6">@Model.UnitPrice</div>
+            </div>
+            <div class="row">
+                <div class="col-6">Số Lượng Sản Phẩm :</div>
+                <div class="col-6"><input type="number" class="form-control" min="1" value="1" /></div>
+            </div>
+            <a class="btn btn-success" onclick="AddItem('@Model.ProductID')">Thêm vào giỏ hàng</a>
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" src="~/Content/js/Cart.js"></script>

@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    var subtotal = 0;
+    var distotal = 0;
+    var total = 0;
+    foreach (var item in Model)
+    {
+        var price = item.Product.UnitPrice;
+        var quantity = item.Quantity;
+@*        var sale = item.Product.Price_Sale;*@        
+        subtotal += price * quantity;
+        distotal += quantity;
+    }
+    total = subtotal - distotal;
+}
+
+<link rel="stylesheet" href="~/Content/Admin/css/aler-validate.css" />
+<link rel="stylesheet" href="~/Content/Admin/css/loadingwebsite.css" />
+<link rel="stylesheet" href="~/Content/Admin/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="py-5">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 ftco-animate">
+                    <form action="#" class="billing-form">
+                        <h3 class="mb-4 billing-heading">Billing Details</h3>
+                        <div class="row align-items-end validate-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname">Your Name</label>
+                                    <div class="input-group validate-input" data-validate="Please enter your name!">
+                                        <input id="txtUser" type="text" value="@ViewBag.username" class="form-control" placeholder="Your Name" id="txtName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Phone number</label>
+                                    <div class="input-group validate-input" data-validate="Please enter your phone number!">
+                                        <input id="txtPhoneNumber" type="text" value="@ViewBag.phone" class="form-control" placeholder="Phone number" id="txtPhone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="country">Address</label>
+                                    <div class="input-group validate-input" data-validate="Please enter your address!">
+                                        <input id="txtAddress" type="text" class="form-control" value="@ViewBag.address" placeholder="Your address" id="txtAddress" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-md-6">
+                                <div class="form-group validate-input" data-validate="Please enter your email!">
+                                    <label for="towncity">Your email</label>
+                                    <input id="txtEmail" name="email" value="@ViewBag.email" class="form-control" placeholder="Your email" id="txtEmail">
+                                </div>
+                            </div>
+                        </div>
+                    </form><!-- END -->
+                </div>
+                <div class="col-xl-5">
+                    <div class="row mt-5 pt-3">
+                        <div class="col-md-12 d-flex mb-5">
+                            <div class="cart-detail cart-total p-3 p-md-4">
+                                <h3 class="billing-heading mb-4">Cart Total</h3>
+                                <p class="d-flex">
+                                    <span class="pr-2">Subtotal</span>
+                                    <span>@subtotal</span>
+                                </p>
+                                <p class="d-flex">
+                                    <span class="pr-2">Discount</span>
+                                    <span>@distotal</span>
+                                </p>
+                                <hr>
+                                <p class="d-flex total-price">
+                                    <span class="pr-2">Total</span>
+                                    <span>@total</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- .col-md-8 -->
+            </div>
+        </div>
+    </section> <!-- .section -->
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-success btn-lg" onclick="payment()">Payment</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- loader -->
+<!-- Essential javascripts for application to work-->
+    <script type="text/javascript" src="~/Content/js/checkout.js"></script>
+<script type="text/javascript" src="~/Content/js/payment.js"></script>
+

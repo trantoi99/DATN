@@ -1,0 +1,145 @@
+﻿
+@{ 
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<table class="table table-bordered py-5">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>ProductName</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Detail</th>
+            <th>ImageUrl</th>
+            <th>Amount</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="tbodyProduct">
+       
+    </tbody>
+</table>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProduct" id="product">
+    Add New
+</button>
+
+<!-- Modal Add-->
+<div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id=" addForm">
+                    <div class="form-group">
+                        <label for="txtNameProd">Product Name</label>
+                        <input type="text" class="form-control" id="txtNameProd" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPrice">Price</label>
+                        <input type="text" class="form-control" id="txtPrice" placeholder="Price">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDescription">Description</label>
+                        <textarea class="form-control" id="txtDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDetail">Deatail</label>
+                        <textarea class="form-control" id="txtDetail" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtAmount">Amount</label>
+                        <input class="form-control" id="txtAmount" placeholder="Amount" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="imgProduct">URL Image</label>
+                        <input type="file" class="form-control-file" id="imgProduct">
+                    </div>
+                    <div class="form-group">
+                        <label for="cateDropDownList">Select Category Dropdown</label>
+                        <select class="form-control" id="cateDropDownList">
+                            <option value="0" disabled>--Chon chu de-----</option>
+                            @foreach (var cate in Model)
+                            {
+                                <option value="@cate.CategoryID">@cate.CategoryName</option>
+                            }
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="addProd()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal fade" id="editProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id=" editForm">
+                    <input id="txtId" hidden>
+                    <div class="form-group">
+                        <label for="txtProductName">Product Name</label>
+                        <input type="text" class="form-control" id="txtProductName">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNewPrice">Price</label>
+                        <input type="text" class="form-control" id="txtNewPrice">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNewDescription">Description</label>
+                        <textarea class="form-control" id="txtNewDescription" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNewDetail">Detail</label>
+                        <textarea class="form-control" id="txtNewDetail" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNewAmount">Amount</label>
+                        <input class="form-control" id="txtNewAmount" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label for="newImgProduct">URL Image</label>
+                        <input type="file" class="form-control-file" id="newImgProduct">
+                      
+                    </div>
+                    <div class="form-group">
+                        <label for="cateEditDropDownList">Select Category Dropdown</label>
+                        <select class="form-control" id="cateEditDropDownList">
+                            @foreach(var cate in Model)
+                            {
+                                <option value="@cate.CategoryID">@cate.CategoryName</option>
+                            }
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="editProduct()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="~/Content/js/product.js" asp-append-version="true"></script>

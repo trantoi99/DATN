@@ -1,0 +1,84 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CategoryName</th>
+            <th>CategoryImage</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="tbodyCate">
+        @* <tr>
+               <td></td>
+                <td></td>
+                <td></td>
+                <td class="btn-group-lg">
+                    <button class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Add</button>
+                    <button class="btn btn-success"><i class="fa fa-close"></i>&nbsp;Edit</button>
+                    <button class="btn btn-danger"><i class="fa fa-close"></i>&nbsp;Remove</button>
+                </td>
+            </tr>*@
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCate" id="addCategory">
+    Add New
+</button>
+
+<!-- Modal Add-->
+<div class="modal fade" id="addCate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="cateForm">
+                    <input type="text" placeholder="Category Name" name="cateName" id="cateName" />
+                    <input type="file" id="cateFile" name="cateFile" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="addCate()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal fade" id="editCate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="cateForm">
+                    <input id="CategoryID" hidden />
+                    <input type="text" placeholder="Category Name" name="txtCateName" id="txtCateName" />
+                    <img id="image" src="" alt="" />
+                    <input type="file" id="txtCateFile" name="txtCateFile" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="editCate()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="~/Content/js/category.js"></script>

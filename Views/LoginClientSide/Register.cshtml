@@ -1,0 +1,67 @@
+﻿@model Electric.Models.Customer
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="container">
+    <div class="box-register">
+        <div class="card">
+
+            <h5 class="card-header info-color white-text text-center py-4">
+                <strong>Sign up</strong>
+            </h5>
+
+            <div class="card-body px-lg-5 pt-0">
+                <form style="color: #757575;">
+                    <div class="md-form">
+                        <i class="fas fa-lock prefix"></i>
+                        <input type="text" id="txtUserName" class="form-control" />
+                        <label for="txtUserName">UserName</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-key prefix"></i>
+                        <input type="password" id="txtPassWord" class="form-control">
+                        <label for="txtPassWord">Password</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-user prefix"></i>
+                        <input type="text" id="txtFullName" class="form-control">
+                        <label for="txtFullName">Full Name</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-birthday-cake prefix"></i>
+                        <input type="date" id="txtBirthday" class="form-control"min='1899-01-01' max='2000-13-13'>
+                        <label for="txtBirthday">Your Birthday</label>
+                        @*  <i class="fas fa-calendar input-prefix" tabindex=0></i>*@
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-map-marker-alt prefix"></i>
+                        <input type="text" id="txtAddress" class="form-control">
+                        <label for="txtAddress">Address</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-envelope prefix"></i>
+                        <input type="email" id="txtEmail" class="form-control">
+                        <label for="txtEmail">Email</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-phone prefix"></i>
+                        <input type="text" id="txtPhone" class="form-control">
+                        <label for="txtPhone">Phone Number</label>
+                    </div>
+                    <select class="mdb-select md-form" id="dropDownGender">
+                        <option value="" disabled selected>Choose Your Gender</option>
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </form>
+                <div class="row">
+                    <button type="button" class="btn btn-primary" onclick="register()">Register</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
