@@ -137,7 +137,10 @@
     <Compile Include="Controllers\LoginClientSideController.cs" />
     <Compile Include="Controllers\ProductAdminController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
-    <Compile Include="EmailService\ConfigEmail.cs" />
+    <Compile Include="AppSetting.cs" />
+    <Compile Include="EmailService\EmailService.cs" />
+    <Compile Include="EmailService\Response\IdentityMessage.cs" />
+    <Compile Include="EmailService\Response\ResponseEmail.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +193,7 @@
     <Content Include="Photos\Logo\fevicon.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="appsetting.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

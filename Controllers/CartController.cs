@@ -155,7 +155,7 @@ namespace Electric.Controllers
         public JsonResult oderProduct(Order order, string address, string phoneNumber)
         {
             var orderDetail = new OrderDetail();
-            var email = new ConfigEmail();
+            var email = new EmailService.EmailService();
             var userName = Session["Account"].ToString();
             var findUser = _context.Customers.FirstOrDefault(x => x.UserName == userName);
             findUser.PhoneNumber = phoneNumber;
