@@ -5,11 +5,12 @@ using System.Linq;
 
 namespace Electric.Models
 {
-    public partial class dbContext : DbContext
+    public partial class ElectricDbContext : DbContext
     {
-        public dbContext()
-            : base("name=dbContext")
+        public ElectricDbContext()
+            : base("name=Electric")
         {
+
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
@@ -26,7 +27,6 @@ namespace Electric.Models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<SaleDetail> SaleDetails { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Vote> Votes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

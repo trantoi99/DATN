@@ -9,7 +9,7 @@ namespace Electric.Controllers
 {
     public class HomeController : Controller
     {
-        private dbContext dbContext = new dbContext();
+        private ElectricDbContext dbContext = new ElectricDbContext();
 
         public ActionResult Index()
         {

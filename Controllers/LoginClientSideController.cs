@@ -9,7 +9,7 @@ namespace Electric.Controllers
 {
     public class LoginClientSideController : Controller
     {
-        public dbContext dbcontext = new dbContext();
+        public ElectricDbContext dbcontext = new ElectricDbContext();
        
         // GET: LoginClientSide
         public ActionResult Index()

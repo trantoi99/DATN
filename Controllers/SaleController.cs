@@ -10,7 +10,7 @@ namespace Electric.Controllers
 {
     public class SaleController : Controller
     {
-        private readonly dbContext dbContext = new dbContext();
+        private readonly ElectricDbContext dbContext = new ElectricDbContext();
         // GET: Sale
         public ActionResult Index()
         {

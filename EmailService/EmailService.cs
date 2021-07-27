@@ -9,9 +9,9 @@ using Electric.EmailService.Response;
 
 namespace Electric.EmailService
 {
-    public class EmailService
+    public static class EmailService
     {
-        public async Task<ResponseEmail> SendAsync(IdentityMessage message)
+        public static async Task<ResponseEmail> SendAsync(IdentityMessage message)
         {
             try
             {

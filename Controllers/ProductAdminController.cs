@@ -10,7 +10,7 @@ namespace Electric.Controllers
 {
     public class ProductAdminController : Controller
     {
-        private dbContext dbcontext = new dbContext();
+        private ElectricDbContext dbcontext = new ElectricDbContext();
         // GET: ProductAdmin
         public ActionResult Index()
         {

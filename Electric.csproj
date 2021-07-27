@@ -144,11 +144,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107270523418_create-table.cs" />
+    <Compile Include="Migrations\202107270523418_create-table.Designer.cs">
+      <DependentUpon>202107270523418_create-table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\dbContext.cs" />
+    <Compile Include="Models\ElectricDbContext.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\Guarantee.cs" />
     <Compile Include="Models\ImageNew.cs" />
@@ -161,7 +166,6 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\SaleDetail.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Models\Vote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -249,6 +253,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202107270523418_create-table.resx">
+      <DependentUpon>202107270523418_create-table.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

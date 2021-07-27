@@ -7,12 +7,13 @@ using System.Web.Mvc;
 using Electric.Models;
 
 using Electric.EmailService;
+using Electric.EmailService.Response;
 
 namespace Electric.Controllers
 {
     public class CartController : Controller
     {
-        private readonly dbContext _context = new dbContext();
+        private readonly ElectricDbContext _context = new ElectricDbContext();
         private const string CartSession = "CartSession";
         // GET: Cart
         public ActionResult Cart()
@@ -152,10 +153,10 @@ namespace Electric.Controllers
         }
         [HttpPost]
 
-        public JsonResult oderProduct(Order order, string address, string phoneNumber)
+        public async Task<JsonResult> oderProduct(Order order, string address, string phoneNumber)
         {
             var orderDetail = new OrderDetail();
-            var email = new EmailService.EmailService();
+
             var userName = Session["Account"].ToString();
             var findUser = _context.Customers.FirstOrDefault(x => x.UserName == userName);
             findUser.PhoneNumber = phoneNumber;
@@ -175,8 +176,18 @@ namespace Electric.Controllers
                 _context.OrderDetails.Add(orderDetail);
             }
             _context.SaveChanges();
-            var isSendEmail = email.RunAsync(findUser.Email, findUser.CustomerName);
-            if(isSendEmail.IsCompleted == true) {
+
+            var identityMessage = new IdentityMessage
+            {
+                Body = "<p>Dat order</p>",
+                Destination = "Data order",
+                EmailAddress = findUser.Email,
+                NameObject = findUser.CustomerName,
+                Subject = "Data order"
+            };
+
+            var isSendEmail = await EmailService.EmailService.SendAsync(identityMessage);
+            if(isSendEmail.Successed == true) {
                 return Json("success");
             }
             else
